@@ -1,50 +1,54 @@
-﻿# A z F oo dF es ti va l
+# Az Food Festival
 
-A z F oo dF es ti va l is part of the Az-Framework Summer 2.0 activity pack. It registers with Az-Summer2Core for routes, contracts, rewards, validation, and dispatch hooks.
+Az Food Festival is part of the Az-Framework Summer 2.0 activity pack. It registers with Az-Summer2Core for contracts, routing, validation, rewards, and dispatch hooks.
 
 [Framework Docs](https://madebyazure.com/framework/) | [Discord Support](https://discord.gg/tBg2U6CTHE)
 
-## Quick Install
+## Status
 
-``cfg
+- Resource: `Az-FoodFestival`
+- Version: `cerulean`
+- Framework: `Az-Framework`
+
+## Install
+
+```cfg
 ensure oxmysql
 ensure ox_lib
 ensure Az-Framework
- Az-FoodFestival
-``
+ensure Az-Summer2Core
+ensure Az-FoodFestival
+```
 
 <details>
-<summary>What this resource does</summary>
+<summary>Dependencies</summary>
 
-- Uses Az-Framework as the core player, character, money, job, and metadata source.
-- Keeps startup order predictable for large FiveM servers.
-- Keeps configuration local to this resource when a config file is present.
-- Uses the Az support/docs path for setup and troubleshooting.
+- `Az-Framework`
+- `Az-Summer2Core`
+
 
 </details>
 
 <details>
-<summary>Configuration guide</summary>
+<summary>Configuration Guide</summary>
 
-1. Put the resource folder in your server resources folder.
+1. Place the resource in your server resources folder.
 2. Start dependencies before this resource.
 3. Review `config.lua` or `shared/config.lua` when present.
-4. Restart the resource after config changes.
+4. Restart the resource after changing config values.
 
 </details>
 
 <details>
-<summary>Bridge and export notes</summary>
+<summary>Az-Framework Integration</summary>
 
-Use Az-Framework exports for framework-facing logic:
+Use Az-Framework exports for character, money, job, metadata, and inventory bridge behavior.
 
-``lua
+```lua
 local Az = exports['Az-Framework']:GetObject()
 local player = exports['Az-Framework']:GetPlayer(source)
 local snapshot = exports['Az-Framework']:GetBridgePlayerSnapshot(source)
-``
-
-Bridge resources from KSRP-Core are published as Az-Framework compatibility bridges and should be started before legacy resources that expect those framework names.
+```
 
 </details>
 
